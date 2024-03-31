@@ -10,7 +10,7 @@ const VideoBackground = ({ movieId }) => {
     <div className=" w-screen">
       {/* We basically Embeded youtube video on our page and that video is elemental trailer */}
       <iframe
-        className="w-screen  aspect-video"
+        className="w-screen aspect-video"
         width="100%"
         height="100%"
         src={
