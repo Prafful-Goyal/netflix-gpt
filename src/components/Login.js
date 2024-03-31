@@ -7,14 +7,13 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const name = useRef(null);
@@ -23,12 +22,12 @@ const Login = () => {
 
   const handleButtonClick = () => {
     // Validate the form data
-    console.log(email.current.value);
-    console.log(password.current.value);
+    //console.log(email.current.value);
+    //console.log(password.current.value);
     //console.log(name.current.value);
 
     const message = checkValidData(email.current.value, password.current.value); //By this one line I validate my "emailId" and "Password"
-    console.log(message);
+    //console.log(message);
     setErrorMessage(message);
     if (message) return;
 
@@ -49,7 +48,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/139034009?v=4",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               // If you extract from "user" then user will not have updated value so for this we use "auth.currentUser" to get new/updated information
@@ -62,15 +61,10 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              // If the user logged In I will navigate the user to "browse"
-              navigate("/browse"); //This navigate can only happen inside my child component
             })
             .catch((error) => {
               setErrorMessage(error.message);
             });
-
-          //IF there is no error it will just log the user
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -88,9 +82,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in(Basically When the user SignIn I want to go to browse page)
           const user = userCredential.user;
-          //IF THE USER SUCCESS
-          console.log(user);
-          navigate("/browse"); //This navigate can only happen inside my child component
         })
         .catch((error) => {
           const errorCode = error.code;
