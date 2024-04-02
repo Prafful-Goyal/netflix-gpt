@@ -11,8 +11,6 @@ const VideoBackground = ({ movieId }) => {
       {/* We basically Embeded youtube video on our page and that video is elemental trailer */}
       <iframe
         className="w-screen aspect-video"
-        width="100%"
-        height="100%"
         src={
           "https://www.youtube.com/embed/" +
           trailerVideo?.key +
@@ -20,7 +18,6 @@ const VideoBackground = ({ movieId }) => {
         }
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
       ></iframe>
     </div>
   );
