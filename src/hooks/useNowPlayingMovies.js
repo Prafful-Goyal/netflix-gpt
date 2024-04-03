@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addNowPlayingMovies } from "../utils/moviesSlice";
+import { useSelector } from "react-redux";
 
 const useNowPlayingMovies = () => {
   //This below code basically fetching the data and put these movies into store
@@ -9,6 +10,10 @@ const useNowPlayingMovies = () => {
   //So,basically we are trying to fetch movies data from TMDB API and update store with all those movies
 
   const dispatch = useDispatch();
+
+  const nowPlayingMovies = useSelector(
+    (store) => store.movies.nowPlayingMovies
+  );
 
   //Make An Api Call Here
   const getNowPlayingMovies = async () => {
@@ -22,7 +27,7 @@ const useNowPlayingMovies = () => {
   };
   //I will make an "API" Call using "useEffect" so that I will make an "API" call only once
   useEffect(() => {
-    getNowPlayingMovies();
+    !nowPlayingMovies && getNowPlayingMovies();
   }, []);
 };
 

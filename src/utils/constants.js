@@ -8,8 +8,7 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMDBlN2QxMjAzNWVhZGYyY2NkOTE0M2E3MDNjYWNhNCIsInN1YiI6IjY2MDJkMDAzMWIxZjNjMDE2Mzk5ZTAzMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.C5FLZTScqesLN2sT9bZdlVi_WfiP5fJqdZgXQaE1v2U",
+    Authorization: "Bearer " + process.env.REACT_APP_TMDB_KEY,
   },
 };
 
@@ -23,3 +22,5 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "hindi", name: "Hindi" },
   { identifier: "spanish", name: "Spanish" },
 ];
+
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY; //You have to secure OPENAI_KEY because attacker hit you OPENAI_KEY and you billing cycle increases
