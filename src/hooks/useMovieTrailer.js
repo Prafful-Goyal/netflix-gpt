@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { API_OPTIONS } from "../utils/constants";
-import { addTrailerVideo } from "../utils/moviesSlice";
+import { API_OPTIONS } from "../utils/constants.js";
+import { addTrailerVideo } from "../utils/moviesSlice.js";
 
 //Hook is just a normal javaScript function
 const useMovieTrailer = (movieId) => {

@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import Browse from "./Browse";
-import Login from "./Login";
+import Browse from "./Browse.js";
+import Login from "./Login.js";
 import { RouterProvider, useNavigate } from "react-router-dom";
 
 const Body = () => {

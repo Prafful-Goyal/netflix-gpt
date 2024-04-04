@@ -1,4 +1,4 @@
-import MovieCard from "./MovieCard";
+import MovieCard from "./MovieCard.js";
 const MovieList = ({ title, movies }) => {
   //console.log(movies);
   // if (movies == null) {

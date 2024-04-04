@@ -1,12 +1,12 @@
 import { signOut, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../utils/firebase";
+import { auth } from "../utils/firebase.js";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
-import { toggleGptSearchView } from "../utils/gptSlice";
-import { changeLanguage } from "../utils/configSlice";
+import { addUser, removeUser } from "../utils/userSlice.js";
+import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants.js";
+import { toggleGptSearchView } from "../utils/gptSlice.js";
+import { changeLanguage } from "../utils/configSlice.js";
 
 const Header = () => {
   const dispatch = useDispatch();

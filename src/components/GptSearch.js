@@ -1,6 +1,6 @@
-import { BG_URL } from "../utils/constants";
-import GptMovieSuggestion from "./GptMovieSuggestion";
-import GptSearchBar from "./GptSearchBar";
+import { BG_URL } from "../utils/constants.js";
+import GptMovieSuggestion from "./GptMovieSuggestion.js";
+import GptSearchBar from "./GptSearchBar.js";
 
 const GptSearch = () => {
   return (

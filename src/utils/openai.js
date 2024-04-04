@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import { OPENAI_KEY } from "./constants";
+import { OPENAI_KEY } from "./constants.js";
 
 //It is kind of like 'authorization' happening over here
 const openai = new OpenAI({
