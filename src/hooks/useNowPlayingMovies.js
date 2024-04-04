@@ -28,7 +28,7 @@ const useNowPlayingMovies = () => {
   //I will make an "API" Call using "useEffect" so that I will make an "API" call only once
   useEffect(() => {
     !nowPlayingMovies && getNowPlayingMovies();
-  }, []);
+  });
 };
 
 export default useNowPlayingMovies;

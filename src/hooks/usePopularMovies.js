@@ -26,7 +26,7 @@ const usePopularMovies = () => {
   //I will make an "API" Call using "useEffect" so that I will make an "API" call only once
   useEffect(() => {
     !popularMovies && getPopularMovies();
-  }, []);
+  });
 };
 
 export default usePopularMovies;
