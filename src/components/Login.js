@@ -82,6 +82,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in(Basically When the user SignIn I want to go to browse page)
           const user = userCredential.user;
+          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
