@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { API_OPTIONS } from "../utils/constants.js";
 import { addNowPlayingMovies } from "../utils/moviesSlice.js";
@@ -16,19 +16,30 @@ const useNowPlayingMovies = () => {
   );
 
   //Make An Api Call Here
-  const getNowPlayingMovies = async () => {
-    const data = await fetch(
-      "https://api.themoviedb.org/3/movie/now_playing?page=1",
-      API_OPTIONS
-    );
-    const json = await data.json();
-    //console.log(json.results);
-    dispatch(addNowPlayingMovies(json.results));
-  };
+  const getNowPlayingMovies = useCallback(async () => {
+    try {
+      const data = await fetch(
+        "https://api.themoviedb.org/3/movie/now_playing?page=1",
+        API_OPTIONS
+      );
+      if (!data.ok) {
+        throw new Error(`HTTP error! Status: ${data.status}`);
+      }
+      const json = await data.json();
+      //console.log(json.results);
+      dispatch(addNowPlayingMovies(json.results));
+    } catch (error) {
+      console.error("Error fetching now playing movies:", error);
+    }
+  }, [dispatch]);
   //I will make an "API" Call using "useEffect" so that I will make an "API" call only once
   useEffect(() => {
-    !nowPlayingMovies && getNowPlayingMovies();
-  });
+    if (!nowPlayingMovies) {
+      getNowPlayingMovies();
+    }
+  }, [getNowPlayingMovies, nowPlayingMovies]);
+
+  return nowPlayingMovies;
 };
 
 export default useNowPlayingMovies;
