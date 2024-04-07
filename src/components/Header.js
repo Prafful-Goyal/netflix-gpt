@@ -51,7 +51,7 @@ const Header = () => {
     //So for "unmount" basically I have to return a function from this component(Unsubscribe when component unmounts so it will unsubscribe my "onAuthStateChanged")
 
     return () => unsubscribe();
-  },[dispatch,navigate]);
+  }, [dispatch, navigate]);
 
   const handleGptSearchClick = () => {
     // Toggle GPT Search button(for toggling you have to "dispatch" an action)

@@ -23,4 +23,4 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "spanish", name: "Spanish" },
 ];
 
-export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY; //You have to secure OPENAI_KEY because attacker hit you OPENAI_KEY and you billing cycle increases
+//export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY; //You have to secure OPENAI_KEY because attacker hit you OPENAI_KEY and you billing cycle increases
